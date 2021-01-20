@@ -5,6 +5,8 @@ const MINE = '💣';
 const MARK = '📌';
 const WIN = '🙃';
 const LOSE = '💥';
+const EMPTY = '';
+
 
 var gLevel = { size: 4, mines: 2 };
 var gEasy = { size: 4, mines: 2 };
@@ -65,6 +67,7 @@ function createBoard(gLevel) {
                 isShown: false,
                 isMine: false,
                 isMarked: false,
+                isEmpty: false,
                 i: i,
                 j: j
             };
@@ -73,17 +76,6 @@ function createBoard(gLevel) {
     }
     return board;
 }
-
-// function setMinesNegsCount(board) {
-// for (var i=0;i<board.length;i++){
-//     for (var j=0;j<board[0].length;j++){
-//         var cell = board[i][j];
-//         if (cell)
-//     }
-// }
-
-// }
-
 
 function addMines() {
     var emptyCells = findEmptyCells();
@@ -94,9 +86,10 @@ function addMines() {
         // console.log(mine)
         gBoard[mine.i][mine.j].isMine = true;
 
-        console.log('cell i j', gBoard[mine.i][mine.j])
+        // console.log('cell i j', gBoard[mine.i][mine.j])
         gMines.push(mine);
         renderCell(mine, MINE);
+        emptyCells = findEmptyCells();
         randIdx = getRandomInt(0, emptyCells.length)
     }
 }
@@ -108,25 +101,34 @@ function cellClick(elCell, event, i, j) {
     cell.minesAroundCount = negs;
     elCell.classList.add('shown');
     elCell.isShown = true;
-    if (elCell.innerText !== MINE && elCell.innerText !== MARK) {
-        if (negs === 0) elCell.innerText = '';
-        else elCell.innerText = negs;
 
+    if (elCell.innerText !== MINE && elCell.innerText !== MARK) {
+        if (negs === 0) {
+            cell.isEmpty = true;
+            elCell.innerText = EMPTY;
+        } else elCell.innerText = negs;
     }
+
     if (event.button === 2) {
+        // if (cell.isEmpty) return;
+        // if (cell.isShown) return;
 
         if (cell.isMarked) {
             renderCell(cell, '');
-            gGame.markedCount--;;
+            cell.isShown = false;
+            gGame.markedCount--;
+            if (cell.isShown) return;
+            elCell.classList.remove('shown');
         } else {
             gGame.markedCount++;
+            cell.isMarked = true;
             renderCell(cell, MARK);
         }
     }
+
     if (elCell.innerText === MINE)
         gameOver();
     console.log(cell)
-        // console.log(elCell)
 
 }
 
