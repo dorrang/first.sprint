@@ -4,8 +4,8 @@ function printMat(mat, selector) {
         strHTML += '<tr>';
         for (var j = 0; j < mat[0].length; j++) {
             var cell = mat[i][j];
-            var className = 'cell cell' + i + '-' + j;
-            strHTML += `<td onclick="cellClick(this,event,${i},${j}) "class="td ${className}">  </td>`
+            var className = ' cell' + i + '-' + j;
+            strHTML += `<td onmousedown="cellClick(this,event,${i},${j}) "class="td ${className}">  </td>`
         }
         strHTML += '</tr>'
     }
@@ -18,6 +18,7 @@ function printMat(mat, selector) {
 // location such as: {i: 2, j: 7}
 function renderCell(location, value) {
     // Select the elCell and set the value
+    // console.log(location)
     var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
     elCell.innerHTML = value;
 }
@@ -28,9 +29,7 @@ function findEmptyCells() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard.length; j++) {
             var currCell = gBoard[i][j];
-            if (currCell.isMine === true) continue;
-            emptyCells.push({ i: i, j: j });
-            console.log(currCell)
+            if (!currCell.isMine) emptyCells.push({ i: i, j: j });
         }
     }
     return emptyCells;
@@ -48,24 +47,15 @@ function countNeighbors(cellI, cellJ, board) {
             if (j < 0 || j >= board[i].length) continue;
             if (board[i][j].isMine) {
                 countNegs++;
+                // console.log(board[cellI][cellJ]);
             }
         }
     }
+    // board[i][j].minesAroundCount = +countNegs;
     console.log(neighbors)
     return countNegs;
 }
 
-
-
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function getRandomColor() {
-    var letters = '123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

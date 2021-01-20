@@ -1,12 +1,12 @@
 body {
     margin: auto;
     margin-top: 40px;
-    background-color: rgba(51, 3, 21, 0.164);
+    background-color: rgba(51, 3, 21, 0.158);
     /* background-image: url(); */
     /* background-repeat: repeat; */
     background-size: cover;
     color: rgb(0, 0, 0);
-    /* background-color: rgb(201, 252, 135); */
+    /* background-color: rgba(205, 206, 255, 0.37); */
     /* background-color: rgba(255, 0, 0, 0.692); */
     text-align: center;
     align-content: center;
@@ -30,12 +30,12 @@ table {
     width: 480px;
     height: 480px;
     margin-bottom: 20px;
-    border: black, 1px;
+    /* border: black, 5px; */
     /* background-color: #d8d8d880; */
-    background: linear-gradient(45deg, #d3d3d3b0, #f4ecffb2, #d4d4d4c4, #ecececa6);
+    background: linear-gradient(45deg, #dbdbdbb0, #f4ecffb2, #d4d4d4c4, #ecececa6);
     background-size: 500% 200%;
     animation: gradient 20s ease infinite;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     box-shadow: 1px 1px 7px 2px rgba(102, 102, 102, 0.301);
 }
 
@@ -49,7 +49,11 @@ table {
     font-size: 9px;
     background-color: rgba(177, 177, 177, 0.185);
     transition: 0.2s;
-    border-radius: 30%;
+    /* border-radius: 30%; */
+}
+
+.shown {
+    background-color: rgba(230, 230, 230, 0.822);
 }
 
 .td:hover {
