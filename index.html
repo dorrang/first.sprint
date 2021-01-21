@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>💣</title>
+    <title>MINESWEEPER</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body oncontextmenu="return false" onload="initGame()">
     <div class="main-container">
         <h1><span>M I N E</span> S W E E P E R</h1>
-        <h2>S C O R E : <span>0</span></h2>
+        <h2>M I N E S : <span>0</span></h2>
         <div class="timer">TIME GOES HERE</div>
         <div class="game-over-modal">
+            <button class="new-game" onclick="toggleGame(this)">New game</button>
             <p>G A M E ▪ O V E R</p>
-            <button onclick="toggleGame(this)">New game</button>
         </div>
 
         <div class="board-container"></div>

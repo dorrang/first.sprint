@@ -20,42 +20,40 @@ function renderCell(location, value) {
     // Select the elCell and set the value
     // console.log(location)
     var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
-    elCell.innerHTML = value;
+    elCell.innerText = value;
 }
-
 
 function findEmptyCells() {
     var emptyCells = [];
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard.length; j++) {
             var currCell = gBoard[i][j];
-            if (!currCell.isMine) emptyCells.push({ i: i, j: j });
+            if (!currCell.isMine && !currCell.isShown) emptyCells.push({ i: i, j: j });
         }
     }
     return emptyCells;
 }
 
-
-
 function countNeighbors(cellI, cellJ, board) {
     var countNegs = 0;
-    var neighbors = [];
+    // var neighbors = [];
     for (var i = cellI - 1; i <= cellI + 1; i++) {
         if (i < 0 || i >= board.length) continue;
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
             if (i === cellI && j === cellJ) continue;
             if (j < 0 || j >= board[i].length) continue;
+            if (board[i][j].isShown) continue;
             if (board[i][j].isMine) {
+                console.log(board[i][j]);
                 countNegs++;
                 // console.log(board[cellI][cellJ]);
             }
         }
     }
-    // board[i][j].minesAroundCount = +countNegs;
-    console.log(neighbors)
+    // console.log(neighbors)
     return countNegs;
 }
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
