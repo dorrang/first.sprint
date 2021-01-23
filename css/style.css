@@ -2,7 +2,7 @@ body {
     margin: auto;
     margin-top: 40px;
     /* background-color: rgba(51, 3, 21, 0.158); */
-    background-image: url(img/white75.png);
+    background-image: url(/img/white75.png);
     background-repeat: repeat;
     /* background-size: cover; */
     color: rgb(0, 0, 0);
