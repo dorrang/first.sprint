@@ -1,10 +1,10 @@
 body {
     margin: auto;
     margin-top: 40px;
-    background-color: rgba(51, 3, 21, 0.158);
-    /* background-image: url(); */
-    /* background-repeat: repeat; */
-    background-size: cover;
+    /* background-color: rgba(51, 3, 21, 0.158); */
+    background-image: url(img/white75.png);
+    background-repeat: repeat;
+    /* background-size: cover; */
     color: rgb(0, 0, 0);
     /* background-color: rgba(205, 206, 255, 0.37); */
     /* background-color: rgba(255, 0, 0, 0.692); */
@@ -33,12 +33,12 @@ table {
     margin-bottom: 20px;
     /* border: black, 5px; */
     /* background-color: #d8d8d880; */
-    /* background: linear-gradient(45deg, #dbdbdbb0, #f4ecffb2, #d4d4d4c4, #ecececa6); */
-    background: linear-gradient(45deg, #dbdbdbb0, #f4ecffb2, #f4ecffb2, #ecececa6);
+    background: linear-gradient(45deg, #ebebebbe, #ffffffb2, #e6e6e6c4, #ecececaf);
+    /* background: linear-gradient(45deg, #dbdbdbb0, #f4ecffb2, #f4ecffb2, #ecececa6); */
     background-size: 500% 200%;
     animation: gradient 20s ease infinite;
     /* border-radius: 15px; */
-    box-shadow: 1px 1px 7px 2px rgba(102, 102, 102, 0.301);
+    box-shadow: 1px 1px 7px 2px rgba(122, 122, 122, 0.267);
 }
 
 .td {
@@ -55,7 +55,7 @@ table {
 }
 
 .shown {
-    background-color: rgba(241, 241, 241, 0.76);
+    background-color: rgba(241, 241, 241, 0.616);
 }
 
 .td:hover {
@@ -99,7 +99,7 @@ h2 {
     background-color: rgba(255, 255, 255, 0.24);
 } */
 
-.timer {
+.banner {
     /* background-color: rgba(0, 0, 0, 0.281); */
     height: 30px;
     margin-bottom: 15px;
@@ -108,4 +108,23 @@ h2 {
 .mine {
     background-color: rgba(255, 30, 30, 0.638);
     transition: 0.3s;
+}
+
+.timer {
+    margin-right: 100px;
+}
+
+.lives {
+    margin-left: 100px;
+    position: static;
+}
+
+.play {
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+
+.play:hover {
+    font-size: 52px;
+    cursor: pointer;
 }

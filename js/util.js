@@ -36,7 +36,6 @@ function findEmptyCells() {
 
 function countNeighbors(cellI, cellJ, board) {
     var countNegs = 0;
-    // var neighbors = [];
     for (var i = cellI - 1; i <= cellI + 1; i++) {
         if (i < 0 || i >= board.length) continue;
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
@@ -44,13 +43,10 @@ function countNeighbors(cellI, cellJ, board) {
             if (j < 0 || j >= board[i].length) continue;
             if (board[i][j].isShown) continue;
             if (board[i][j].isMine) {
-                console.log(board[i][j]);
                 countNegs++;
-                // console.log(board[cellI][cellJ]);
             }
         }
     }
-    // console.log(neighbors)
     return countNegs;
 }
 
