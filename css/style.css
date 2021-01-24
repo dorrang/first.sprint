@@ -125,6 +125,6 @@ h2 {
 }
 
 .play:hover {
-    font-size: 52px;
+    /* font-size: 52px; */
     cursor: pointer;
 }
